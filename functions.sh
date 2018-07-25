@@ -71,6 +71,7 @@ get_version()
 		LARGE_STORAGE=""
 	fi
 }
+echo "version"
 
 init_log()
 {
@@ -81,7 +82,7 @@ init_log()
 	logfile=rollout_$1.log
 	rm -f $LOCAL_PWD/log/$logfile
 }
-
+echo "init"
 start_log()
 {
 	if [ "$OSVERSION" == "Linux" ]; then
@@ -90,7 +91,7 @@ start_log()
 		T="$(date +%s)"
 	fi
 }
-
+echo "start_log"
 log()
 {
 	#duration
@@ -121,12 +122,13 @@ log()
 
 	printf "$id|$schema_name.$table_name|$tuples|%02d:%02d:%02d.%03d\n" "$((S/3600%24))" "$((S/60%60))" "$((S%60))" "${M}" >> $LOCAL_PWD/log/$logfile
 }
-
+echo "log"
 end_step()
 {
 	local logfile=end_$1.log
 	touch $LOCAL_PWD/log/$logfile
 }
+echo "end_step"
 
 create_hosts_file()
 {
@@ -139,3 +141,4 @@ create_hosts_file()
 		echo $MASTER_HOST > $LOCAL_PWD/segment_hosts.txt
 	fi
 }
+echo "create_hosts_file"
