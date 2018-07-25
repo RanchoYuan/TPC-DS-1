@@ -3,7 +3,9 @@
 set -e
 PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 source $PWD/functions.sh
+echo "source $PWD/functions.sh"
 source_bashrc
+echo "source_bashrc"
 
 GEN_DATA_SCALE="$1"
 EXPLAIN_ANALYZE="$2"
