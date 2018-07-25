@@ -27,7 +27,9 @@ echo "MASTER_HOST=$(hostname | awk -F '.' '{print $1}')"
 
 source_bashrc()
 {
+	echo "startup"
 	startup_file=".bashrc"
+	echo "startup end"
 	if [ ! -f ~/.bashrc ]; then
 		if [ -f ~/.bash_profile ]; then
 			startup_file=".bash_profile"
@@ -36,6 +38,7 @@ source_bashrc()
 			touch ~/.bashrc
 		fi
 	fi
+	echo ".bashrc"
 	for g in $(grep "greenplum_path.sh" ~/$startup_file | grep -v "\#"); do
 		GREENPLUM_PATH=$g
 	done
