@@ -13,11 +13,17 @@ fi
 export LD_PRELOAD=/lib64/libz.so.1 ps
 
 LOCAL_PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+echo "LOCAL_PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OSVERSION=`uname`
+echo "OSVERSION=`uname`"
 ADMIN_USER=`whoami`
+echo "ADMIN_USER=`whoami`"
 ADMIN_HOME=$(eval echo ~$ADMIN_USER)
+echo "ADMIN_HOME=$(eval echo ~$ADMIN_USER)"
 GPFDIST_PORT=9000
+echo "GPFDIST_PORT=9000"
 MASTER_HOST=$(hostname | awk -F '.' '{print $1}')
+echo "MASTER_HOST=$(hostname | awk -F '.' '{print $1}')"
 
 source_bashrc()
 {
@@ -46,6 +52,7 @@ source_bashrc()
 	source ~/$startup_file || true
 	echo ""
 }
+echo "source_bashrc"
 get_version()
 {
 	#need to call source_bashrc first
